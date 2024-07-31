@@ -1,0 +1,112 @@
+@import './../../../variables';
+
+.page-sidebar {
+  padding: 0.5em;
+  display: grid;
+  height: 100%;
+  grid-template-rows: 110px auto 110px;
+}
+
+.logo {
+  img {
+    width: 150px;
+    transition: all ease-in-out 0.4s;
+  }
+}
+
+.text-generales {
+  color: $secondary-text;
+  font-size: 0.7em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+  font-size: 0.95em;
+
+  i,
+  svg {
+    width: 17px;
+    height: 14px;
+    color: $secondary-text;
+  }
+
+  a {
+    color: $color-font;
+    text-decoration: none;
+    transform: translateY(1px);
+  }
+}
+
+hr {
+  background-color: $secondary-text;
+  height: 3px;
+  margin: 5px 0px;
+}
+
+.circle-name {
+  background-color: $secondary-text;
+  color: white;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+}
+
+.name-rol {
+  color: #000;
+
+  p {
+    margin-bottom: 0px;
+    line-height: 18px;
+    font-weight: 700;
+  }
+
+  p.rol {
+    font-size: 0.8em;
+    font-weight: 400;
+  }
+}
+
+.footer-sidebar {
+  display: grid;
+}
+
+.contracted{
+    padding-left: 0px;
+    padding-right: 0px;
+    .logo {
+        img {
+          width: 100%;
+        }
+      }
+      .name-rol{
+        display: none;
+      }
+      .text-logout{
+        display: none;
+      }
+      .text-generales{
+        font-size: 0.6em;
+      }
+      .footer-sidebar{
+        justify-content: center;
+        text-align: center;
+        .logout{
+          justify-content: center;
+        }
+      }
+      .box-profile{
+        display: grid !important;
+        justify-content: center;
+      }
+      .rol{
+        font-size: 0.6em;
+      }
+}

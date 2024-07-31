@@ -1,0 +1,116 @@
+@import '../../../../variables';
+
+.content-login{
+    display: grid;
+    grid-template-columns: minmax(300px, 65%) auto;
+    grid-template-rows: 100dvh;
+}
+.cover-img{
+    width: 100%; /* O el ancho específico que desees */
+    position: relative; /* Esto es opcional, depende del diseño */
+    overflow: hidden; /* Esto oculta cualquier parte de la imagen que se salga del contenedor */
+    img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ajusta la imagen para que cubra todo el contenedor */
+        object-position: bottom; /* Centra la imagen en el contenedor */
+    }
+}
+
+.content-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-font;
+}
+.title-form{
+    font-weight: 800;
+    line-height: 40px;
+}
+.recover-pass-text{
+    font-size: 0.8em;
+    span{
+        color: $primary-color;
+        cursor: pointer;
+        font-weight: 500;
+    }
+}
+
+.form{
+    width: 500px;
+    max-width: 80%;
+    height: fit-content;
+    padding: 1em;
+    form{
+        display: grid;
+        gap: 2em;
+    }
+}
+
+label{
+    font-size: 0.9em;
+    font-weight: 500;
+    color: $color-font-ligth;
+}
+.form-group{
+    position: relative;
+}
+.input-login{
+    width: 100%;
+    border: none;
+    border-bottom: 2px solid;
+    border-color: $color-font-ligth;
+    padding-left: 25px;
+    padding-bottom: 5px;
+}
+
+.icon-input{
+    position: absolute;
+    left: 0;
+}
+
+.icon-input-rigth{
+    position: absolute;
+    right: 0;
+}
+
+.input-login:active,.input-login:focus, .input-login:focus-visible{
+    border-color: $primary-color;
+    box-shadow: none;
+    outline: none;
+}
+
+.msj-error{
+    color: red;
+    font-weight: 500;
+    font-size: 0.8em;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: end;
+    top: 58px;
+}
+
+.error{
+    color: red;
+    font-weight: 500;
+    font-size: 0.8em;
+    position: absolute;
+}
+
+.spinner-border{    
+    margin-left: 5px;
+}
+
+@media (max-width: 768px) {
+    .content-login{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    .cover-img{
+        display: none;
+    }
+    .form{
+        max-width: 95vw;
+    }
+}

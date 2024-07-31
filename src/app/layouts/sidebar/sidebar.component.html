@@ -1,0 +1,29 @@
+<div class="page-sidebar {{expanded ? 'expanded' : 'contracted'}}">
+    <div class="logo">
+        <img src="./assets/logo-one.webp" alt="logo page">        
+    </div>
+    <div class="routers">
+        <p class="text-generales">Generales</p>
+        <app-router-link />
+    </div>
+    <div class="footer-sidebar">
+        <div class="logout gap-2 cursor-pointer" (click)="logOut()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <a class="text-one text-logout hover-bold">Salir de la cuenta</a>
+        </div>
+        <hr>
+        <div class="box-profile d-flex align-items-center gap-2">     
+            <div class="circle-name">
+                {{initials}}
+            </div>
+            <div class="name-rol">
+                <p class="name-user">
+                    {{name}} {{lastname}}
+                </p>
+                <p class="rol">
+                    Superadmin
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

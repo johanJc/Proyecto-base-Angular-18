@@ -1,0 +1,76 @@
+
+<div class="content-login">
+    <div class="cover-img">
+        <img src="./assets/cover-auth.webp" alt="" class="">
+    </div>
+    <div class="content-form">
+        <div class="form">
+            @if (!showRecoverPassword) {
+                <form action="" (submit)="login($event)" [formGroup]="formLogin">
+                    <div class="logo">
+                        <img src="./assets/logo-one.webp" alt="">
+                    </div>
+                    <div class="header-form">
+                        <h1 class="title-form">Inicia sesión</h1>
+                        <p class="recover-pass-text">¿Olvidaste tu contraseña? <span (click)="recoverPassword(true)">Recuperar ahora</span></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="email" class="input-login" placeholder="Tu email aquí" required formControlName="email" autocomplete="new-user">
+                        <span class="icon-input">
+                            <i class="fa-regular fa-envelope"></i>
+                        </span>             
+                        @if (formLogin.get('email').errors && formLogin.get('email').touched) {
+                            @if (formLogin.get('email').hasError('required')) {
+                                <span class="msj-error"> {{'Este campo es obligatorio.'}} </span>
+                            }
+                            @if (formLogin.get('email').hasError('pattern')) {
+                                <span class="msj-error"> {{'Correo no válido'}} </span>
+                            }
+                        }
+                    </div>
+                    <div class="form-group mt-3">
+                        <label for="">Contraseña</label>
+                        <input [type]="showPass ? 'text' : 'password'" class="input-login" placeholder="Escribe tu contraseña aquí" required formControlName="password" autocomplete="new-password">
+                        <span class="icon-input">
+                            <i class="fa-solid fa-lock"></i>
+                        </span>
+                        <span class="icon-input-rigth cursor-pointer" (click)="togglePasswordVisibility()">
+                            <span class="{{!showPass ? 'd-none' : ''}}"><i class="fa-regular fa-eye-slash"></i></span>
+                            <span class="{{showPass ? 'd-none' : ''}}"><i class="fa-regular fa-eye"></i></span>
+                        </span>                   
+                        @if (formLogin.get('password').errors && formLogin.get('password').touched) {
+                            @if (formLogin.get('password').hasError('required')) {
+                                <span class="msj-error"> {{'Este campo es obligatorio.'}} </span>
+                            }
+                        }
+                    </div>
+        
+                    <div class="form-check" style="transform: translateY(-15px);">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="rememberUser">
+                        <label class="form-check-label" for="flexCheckDefault">
+                          Recordar
+                        </label>
+                      </div>
+                    @if (msjError) {
+                        <div class="position-relative h-0 w-100">
+                            <p class="error w-100 text-center">
+                                {{msjError}}
+                            </p>             
+                        </div>
+                    }
+                    <div class="buttons mt-3">
+                        <button class="btn-style-1 {{spinnerLoading ? 'loading' : ''}}">
+                            Iniciar sesión
+                            @if (spinnerLoading) {
+                                <span class="spinner-border spinner-border-sm" role="status"></span>
+                            }
+                        </button>
+                    </div>
+                </form>
+            } @else {
+                <app-recover-password (showLogin)="recoverPassword(false)"/>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="list-warehouses">
+    <ngb-pagination [collectionSize]="listWarehouses.length" [(page)]="page" size="sm" [maxSize]="3" [pageSize]="pageSize" [rotate]="true"/>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Ciudad</th>
+            <th scope="col">Departamento</th>
+            <th scope="col">Zonas de acceso</th>
+            <th scope="col">Zonas de descarga</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+            @for (item of listWarehouses | slice: (page-1) * pageSize : page * pageSize; track item) {
+                <tr>
+                  <td>{{item.name}}</td>
+                  <td>{{item.address}}</td>
+                  <td>{{item.city}}</td>
+                  <td>{{item.department}}</td>
+                  <td>{{item.accessZones}}</td>
+                  <td>{{item.unloadingZones}}</td>
+                  <td>{{item.warehousesStatus}}</td>
+                </tr>
+            }
+        </tbody>
+      </table>            
+</div>

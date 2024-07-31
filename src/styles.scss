@@ -1,0 +1,261 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+@import 'variables';
+
+$width-navbar-body: 93%;
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.btn-style-1 {
+  width: 100%;
+  border-radius: 32px;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  outline: none;
+  padding: 0.9em 0.5em;
+  font-weight: 500;
+  transition: all ease-in-out 0.3s;
+  box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.2509803922);
+
+}
+
+.btn-style-1.loading {
+  background-color: $secondary-color;
+  cursor: auto;
+}
+
+.btn-style-1:hover {
+  background-color: $secondary-color;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.swal2-confirm {
+  // text-transform: capitalize;
+  background-color: $primary-color !important;
+}
+
+
+// INSIDE STYLE
+.content-page {
+  display: grid;
+  grid-template-areas:
+    "sidebar body-page"
+    "sidebar body-page";
+  grid-template-rows: auto 1fr;
+  grid-template-columns: auto 1fr;
+  height: 100vh;
+  /* Esto hará que la grilla ocupe toda la altura de la ventana */
+  background-color: $background-page;
+}
+
+.navbar {
+  grid-area: navbar;
+  // background-color: #f7f9fd; /* Color de fondo para la navbar */
+  padding: 10px;
+  padding-inline:0px;
+  height: 100px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  color: white;
+  /* Color de texto para la sidebar */
+  padding: 10px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  // overflow: 'hidden';
+  background-color: white;  
+  position: relative;
+  width: 80px;
+  transition: all ease-in-out 0.4s;
+}
+
+.sidebar.expanded{
+  width: 250px;
+}
+
+.body-page {
+  grid-area: body-page;
+  // background-color: #f7f9fd; /* Color de fondo para el contenido */
+  padding: 10px;
+  overflow-y: auto;
+  width: $width-navbar-body;
+  margin-inline: auto;
+  transition: all ease-in-out 0.4s;
+  /* Agrega scroll si el contenido es muy grande */
+}
+
+.text-one{
+    color: $color-font-ligth;
+    opacity: 80%;
+}
+
+.text-one.hover-bold:hover{
+    color: $color-font;    
+    font-weight: 500;
+    opacity: 90%;
+}
+.handler-sidebar{
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-font;
+  right: 0;
+  transform: translateX(50%);
+  cursor: pointer;
+}
+
+.handler-sidebar.expanded{
+  i,svg{
+    rotate: 180deg;
+  }
+}
+
+.body-page.sidebar-contracted{
+  width: 97%;  
+} 
+.container-routers{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+
+.body-page{
+  // width: 97%;  
+  height: 100dvh;
+  display: grid;
+  grid-template-areas:
+  "navbar"
+  "container-routers";
+  grid-auto-rows: min-content auto;
+}
+
+.container-routers{
+  grid-area: container-routers;
+  overflow: auto;
+}
+
+
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+.b-scroll::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.b-scroll::-webkit-scrollbar:vertical {
+  width: 10px;
+}
+
+.b-scroll::-webkit-scrollbar-button:increment,
+.b-scroll::-webkit-scrollbar-button {
+  display: none;
+}
+
+.b-scroll::-webkit-scrollbar:horizontal {
+  height: 7px !important;
+}
+
+.b-scroll::-webkit-scrollbar-thumb {
+  background-color: $primary-color;
+  border-radius: 20px;
+  border: 1.5px solid #f1f2f3;
+}
+
+.b-scroll::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+
+// ESTILOS DE TABLAS
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: $background-page !important;
+  box-shadow: none !important;
+}
+
+.table-striped > tbody > tr{
+  border-width: 0px !important;
+  border-style: hidden !important;
+}
+
+.table > :not(caption) > * > *{
+  color: $color-font !important;
+  font-size: 0.95em;
+}
+
+ngb-pagination{
+  .page-link{
+    background-color: transparent !important;
+    border: none;
+    font-size: 0.8em;
+    width: 27px;
+    height: 27px;    
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-font-ligth;
+    box-shadow: none !important;
+  }
+  .page-item.active>.page-link{
+    background-color: #DEE4EB66 !important;
+    color: $color-font-ligth !important;
+    font-weight: 600;
+    box-shadow: none !important;
+  }
+
+}
+// END INSIDE STYLE
+@media (max-width: 768px) {
+
+  // body,
+  // html {
+  //   height: 100dvh;
+  // }
+
+  .sidebar{
+    position: absolute;
+    z-index: 2;
+    height: 100dvh;
+    transform: translateX(-70px);
+  }
+  .sidebar.expanded{
+    transform: translateX(0px);
+  }
+  .body-page{
+    width: 97%;  
+    height: 100dvh;
+
+    display: grid;
+    grid-template-areas:
+    "navbar"
+    "container-routers";
+    grid-auto-rows: min-content auto;
+  }
+  .content-page {
+    grid-template-columns: 100%;
+    grid-template-areas: "body-page body-page";
+  }
+  .navbar{
+    padding-top: 0px;
+    height: fit-content;
+  }
+  .container-routers{
+    grid-area: container-routers;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    overflow: auto;
+  }
+}

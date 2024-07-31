@@ -1,0 +1,30 @@
+<ul class="nav nav-pills flex-column gap-2 container-routes {{expanded ? 'expanded' : 'contracted'}}">
+    <li class="nav-item">
+        <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
+            <i class="fa-solid fa-house"></i>
+            <span class="name-page">Dashboard</span>
+        </a>
+    </li>
+
+    <li class="nav-item">
+      <a routerLink="/warehouses" routerLinkActive="active" class="nav-link">
+        <i class="fa-solid fa-warehouse"></i>
+          <span class="name-page">Bodegas</span>
+      </a>
+  </li>
+
+    <li class="nav-item" routerLinkActive #dropdown_register="routerLinkActive">
+        <div class="dropdown">
+            <a class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" [ngClass]="{'active': dropdown_register.isActive}">
+                <i class="fa-solid fa-file-lines"></i>
+                <span class="name-page">
+                  Registros
+                </span>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item nav-link" routerLink="/comercial" routerLinkActive="active">Comercial</a></li>
+              <li><a class="dropdown-item nav-link" routerLink="/not-comercial" routerLinkActive="active">No comercial</a></li>
+            </ul>
+          </div>
+    </li>
+</ul>
